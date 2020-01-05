@@ -48,7 +48,9 @@ lstg.addEventListener('click', e => {
     if (e.target.tagName === "P") {
         let c = e.target.textContent;
 
-        e.target.innerHTML = '<input  class="pt" autofocus type="text" value="' + c + '" name="list" id="">'
+        e.target.innerHTML = '<input  class="pt form-control" style="display: inline;\n' +
+            '    width: 70%;\n' +
+            '    height: 25px;" autofocus type="text" value="' + c + '" name="list" id="">'
        e.target.firstChild.select().focus();
         inp = document.querySelectorAll('.pt');
 
@@ -74,9 +76,10 @@ lstg.addEventListener('click', e => {
         if (c.target.tagName == "INPUT")
             h = c.target.value;
         g = c.target;
-    });
+
 
     if ((g.parentElement.parentElement === e.target.parentElement.parentElement && e.target.tagName === "svg" && e.target.classList.contains("ado")) || (e.target.tagName === "span") && e.target.classList.contains("k") && g.parentElement.parentElement === e.target.parentElement) {
+
         e.target.parentElement.parentElement.firstChild.innerHTML = h;
     } else if (g.parentElement.parentElement === e.target.parentElement.parentElement.parentElement && e.target.tagName === "path" && e.target.getAttribute("fill") == "currentColor" && e.target.parentElement.classList.contains("ado")) {
         e.target.parentElement.parentElement.parentElement.firstChild.innerHTML = h;
@@ -85,7 +88,7 @@ lstg.addEventListener('click', e => {
     } else if (e.target.tagName === "LI" && e.target.firstChild.firstChild.tagName === "INPUT") {
         e.target.parentElement.children.firstChild.innerHTML = e.target.parentElement.children.firstChild.firstChild.value;
     }
-});
+});   });
 body.addEventListener('click', ev => {
     inputs = document.querySelectorAll(".npt");
     inp = document.querySelectorAll('.pt');
